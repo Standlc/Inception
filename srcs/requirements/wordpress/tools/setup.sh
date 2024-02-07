@@ -10,7 +10,7 @@ if ! test -f wp-config.php; then
 fi
 
 if ! wp core is-installed; then
-    wp core install --title=$WP_SITE_TITLE --url=stde-la- --admin_user=$WP_ADMIN_USERNAME --admin_email=$WP_ADMIN_USERNAME@wp.wp --admin_password=$WP_ADMIN_PASSWORD
+    wp core install --title=$WP_SITE_TITLE --url=stde-la-.42.fr --admin_user=$WP_ADMIN_USERNAME --admin_email=$WP_ADMIN_USERNAME@wp.wp --admin_password=$WP_ADMIN_PASSWORD
     wp user create $WP_USER_USERNAME $WP_USER_USERNAME@wp.wp --user_pass=$WP_USER_PASSWORD
 fi
 

@@ -42,9 +42,15 @@ services:
 
 volumes:
   wordpress:
-    # device: '/home/stde-la-/data/wordpress'
+    driver_opts:
+      type: none
+      o: bind
+      device: '/home/stde-la-/data/wordpress'
   mariadb:
-    # device: '/home/stde-la-/data/mariadb'
+    driver_opts:
+      type: none
+      o: bind
+      device: '/home/stde-la-/data/mariadb'
 
 networks:
   inception:
