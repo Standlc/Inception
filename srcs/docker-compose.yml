@@ -10,7 +10,8 @@ services:
     env_file: .env
     volumes:
       - mariadb:/var/lib/mysql
-    restart: unless-stopped
+    stop_grace_period: 1s
+    restart: always
 
   wordpress:
     container_name: wordpress
@@ -23,7 +24,7 @@ services:
     build:
       context: requirements/wordpress
     env_file: .env
-    restart: on-failure
+    restart: always
 
   nginx:
     container_name: nginx
@@ -38,19 +39,19 @@ services:
     env_file: .env
     ports:
       - 443:443
-    restart: on-failure
+    restart: always
 
 volumes:
   wordpress:
     driver_opts:
       type: none
       o: bind
-      device: '/home/stde-la-/data/wordpress'
+      device: $MOUNT_VOLUME_DIR/wordpress
   mariadb:
     driver_opts:
       type: none
       o: bind
-      device: '/home/stde-la-/data/mariadb'
+      device: $MOUNT_VOLUME_DIR/mariadb
 
 networks:
   inception:
